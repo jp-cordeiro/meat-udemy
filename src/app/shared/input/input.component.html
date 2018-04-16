@@ -1,0 +1,50 @@
+<div class="form-group"
+
+     [ngClass]="{
+          'has-success': input.valid && (input.dirty || input.touched),
+          'has-error': input.invalid && (input.dirty || input.touched)
+          }">
+  <label class="control-label sr-only" for="inputSuccess">
+    <i class="fa fa-check"></i> {{label}}
+  </label>
+
+  <!--<input-->
+  <!--type="text"-->
+  <!--class="form-control"-->
+  <!--id="inputSuccess"-->
+  <!--placeholder="Endereço"-->
+  <!--name="andress"-->
+  <!--required-->
+  <!--autocomplete="off"-->
+  <!--minlength="5"-->
+
+  <!--#inputAddress="ngModel"-->
+  <!--ngModel-->
+  <!--&gt;-->
+  <ng-content></ng-content>
+
+  <!--Válido-->
+  <span class="help-block"
+
+        *ngIf="hasSuccess()"
+  >
+              <i class="fa"
+
+                 [ngClass]="{
+          'fa-check': hasSuccess()
+          }"
+              ></i>
+            </span>
+
+  <!--Inválido-->
+  <span class="help-block"
+
+        *ngIf="hasError()">
+              <i class="fa"
+
+                 [ngClass]="{
+          'fa-remove': hasError()
+          }"
+              ></i> {{errorMessage}}
+            </span>
+</div>
