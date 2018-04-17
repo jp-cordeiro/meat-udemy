@@ -1,7 +1,6 @@
 import {Routes} from '@angular/router'
 import {HomeComponent} from "./home/home.component";
 import {RestaurantsComponent} from "./restaurants/restaurants.component";
-import {AboutComponent} from "./about/about.component";
 import {RestaurantDetailComponent} from "./restaurants/restaurant-detail/restaurant-detail.component";
 import {MenuComponent} from "app/restaurants/restaurant-detail/menu/menu.component";
 import {ReviewsComponent} from "./restaurants/restaurant-detail/reviews/reviews.component";
@@ -32,12 +31,12 @@ export const ROUTES: Routes = [
         ]
     },
     {
-        path:'order', component: OrderComponent,
+        path:'order', loadChildren: './order/order.module#OrderModule',
     },
     {
         path: 'order-sumary',component:OrderSumaryComponent
     },
     {
-        path:'about', component: AboutComponent
+        path:'about', loadChildren: './about/about.module#AboutModule'
     }
 ]
