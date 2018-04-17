@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {RadioOption} from "../shared/radio/radio-opition.model";
 import {OrderService} from "./order.service";
 import {CartItem} from "../restaurants/restaurant-detail/shopping-cart/cart-item.model";
+import {Order, OrderItem} from "./order.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'mt-order',
@@ -28,7 +30,8 @@ export class OrderComponent implements OnInit {
   ]
 
   constructor(
-      private orderService: OrderService
+      private orderService: OrderService,
+      private router: Router
   ) { }
 
   ngOnInit() {
@@ -52,5 +55,18 @@ export class OrderComponent implements OnInit {
 
   remove(item: CartItem): void{
     this.orderService.removeItem(item)
+  }
+
+  checkOrder(order: Order){
+    order.orderItems = this.cartItems()
+    //Com o map estamos transformando um array de cartItems em um array de OrderItems
+        .map(
+            (item:CartItem) => new OrderItem(item.quantity, item.menuItem.id))
+    this.orderService.checkOrder(order)
+        .subscribe((orderId: string) => {
+      console.log(`Compra concluída: ${orderId}`)
+          this.orderService.clear()
+          this.router.navigate(['/order-sumary'])
+        })
   }
 }

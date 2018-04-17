@@ -370,5 +370,27 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "adress": "Rua A",
+      "number": "123",
+      "optionalAddress": "A",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quatity": 1,
+          "menuId": "zlasagna"
+        },
+        {
+          "quatity": 1,
+          "menuId": "greensandwich"
+        },
+        {
+          "quatity": 1,
+          "menuId": "ceasar"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }
