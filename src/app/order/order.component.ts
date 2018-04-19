@@ -113,15 +113,15 @@ export class OrderComponent implements OnInit {
 
   checkOrder(order: Order){
     console.log(order)
-    // order.orderItems = this.cartItems()
-    // //Com o map estamos transformando um array de cartItems em um array de OrderItems
-    //     .map(
-    //         (item:CartItem) => new OrderItem(item.quantity, item.menuItem.id))
-    // this.orderService.checkOrder(order)
-    //     .subscribe((orderId: string) => {
-    //   console.log(`Compra concluída: ${orderId}`)
-    //       this.orderService.clear()
-    //       this.router.navigate(['/order-sumary'])
-    //     })
+    order.orderItems = this.cartItems()
+    //Com o map estamos transformando um array de cartItems em um array de OrderItems
+        .map(
+            (item:CartItem) => new OrderItem(item.quantity, item.menuItem.id))
+    this.orderService.checkOrder(order)
+        .subscribe((orderId: string) => {
+      console.log(`Compra concluída: ${orderId}`)
+          this.orderService.clear()
+          this.router.navigate(['/order-sumary'])
+        })
   }
 }

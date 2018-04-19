@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import {PreloadAllModules, RouterModule} from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,9 @@ import { SharedComponent } from './shared/shared.component';
 import { OrderSumaryComponent } from './order/order-sumary/order-sumary.component';
 import {SharedModule} from "./shared/shared.module";
 import {CoreModule} from "./core/core.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NotFoundComponent } from './not-found/not-found.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -34,17 +37,21 @@ import {CoreModule} from "./core/core.module";
     MenuItemComponent,
     ReviewsComponent,
     SharedComponent,
-    OrderSumaryComponent
+    OrderSumaryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES,{preloadingStrategy: PreloadAllModules}),
     ReactiveFormsModule,
-    SharedModule.forRoot()
+    SharedModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
+      //# na URL para o servidor http
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]
