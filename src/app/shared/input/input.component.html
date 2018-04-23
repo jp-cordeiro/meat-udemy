@@ -1,4 +1,4 @@
-<div class="form-group"
+<div class="form-group has-feedback"
 
      [ngClass]="{
           'has-success': input.valid && (input.dirty || input.touched),
@@ -26,7 +26,7 @@
   <!--Válido-->
   <span class="help-block"
 
-        *ngIf="hasSuccess()"
+        *ngIf="showTip && hasSuccess()"
   >
               <i class="fa"
 
@@ -39,7 +39,7 @@
   <!--Inválido-->
   <span class="help-block"
 
-        *ngIf="hasError()">
+        *ngIf="showTip && hasError()">
               <i class="fa"
 
                  [ngClass]="{

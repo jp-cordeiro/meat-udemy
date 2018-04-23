@@ -7,10 +7,14 @@ import {ReviewsComponent} from "./restaurants/restaurant-detail/reviews/reviews.
 import {OrderComponent} from "./order/order.component";
 import {OrderSumaryComponent} from "./order/order-sumary/order-sumary.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {LoginComponent} from "./security/login/login.component";
 
 export const ROUTES: Routes = [
     {
-        path:'', component: HomeComponent
+        path:'', component: LoginComponent
+    },
+    {
+        path:'home', component: HomeComponent
     },
     {
         path:'restaurants', component: RestaurantsComponent
