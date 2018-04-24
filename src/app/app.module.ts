@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import {PreloadAllModules, RouterModule} from '@angular/router';
 
@@ -24,6 +24,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NotFoundComponent } from './not-found/not-found.component';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { LoginComponent } from './security/login/login.component';
+import { UserDetailComponent } from './header/user-detail/user-detail.component';
+import {ApplicationErrorHandle} from "./app.error-handler";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { LoginComponent } from './security/login/login.component';
     SharedComponent,
     OrderSumaryComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { LoginComponent } from './security/login/login.component';
   providers: [
       //# na URL para o servidor http
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    {provide: LOCALE_ID, useValue: 'pt-BR'}
+    {provide: LOCALE_ID, useValue: 'pt-BR'},
+    {provide: ErrorHandler, useClass: ApplicationErrorHandle}
   ],
   bootstrap: [AppComponent]
 })

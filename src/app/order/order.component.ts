@@ -6,6 +6,8 @@ import {Order, OrderItem} from "./order.model";
 import {Router} from "@angular/router";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
+import 'rxjs/add/operator/do'
+
 @Component({
   selector: 'mt-order',
   templateUrl: './order.component.html',
@@ -37,6 +39,8 @@ export class OrderComponent implements OnInit {
 
   /*Reges number*/
   numberPatern = /^[0-9]*$/
+
+  orderId: string
 
   constructor(
       private orderService: OrderService,
@@ -111,15 +115,21 @@ export class OrderComponent implements OnInit {
     this.orderService.removeItem(item)
   }
 
+  isOrderCompleted(): boolean{
+    return this.orderId !== undefined
+  }
+
   checkOrder(order: Order){
-    console.log(order)
     order.orderItems = this.cartItems()
     //Com o map estamos transformando um array de cartItems em um array de OrderItems
         .map(
             (item:CartItem) => new OrderItem(item.quantity, item.menuItem.id))
     this.orderService.checkOrder(order)
+        .do((orderId: string) => {
+          this.orderId = orderId
+        })
         .subscribe((orderId: string) => {
-      console.log(`Compra concluída: ${orderId}`)
+          console.log(`Compra concluída: ${orderId}`)
           this.orderService.clear()
           this.router.navigate(['/order-sumary'])
         })

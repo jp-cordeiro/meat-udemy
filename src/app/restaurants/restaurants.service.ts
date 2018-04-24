@@ -4,7 +4,6 @@ import {MEAT_API} from "../app.api";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
-import {ErrorHandle} from "../app.error-handler";
 import {MenuItem} from "./restaurant-detail/menu-item.model";
 import {HttpClient, HttpParams} from "@angular/common/http";
 
