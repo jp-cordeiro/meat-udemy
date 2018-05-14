@@ -6,7 +6,7 @@
 
 * Executar o comando:
  <strong>npm i</strong>
- no diretório raiz do projeto para realizar a instalação de todas as dependencias utilizadas;
+ no diretório raiz do projeto para realizar a instalação de todas as dependências utilizadas;
  
 * Após todas as dependências serem instaladas rodar o comando:
   <strong>node backend/dist/server</strong>
