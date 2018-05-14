@@ -10,12 +10,12 @@
  
 * Após todas as dependências serem instaladas rodar o comando:
   <strong>node backend/dist/server</strong>
- Para subir o servidor que estará rodando em: localhost:3001 (acessar 
+ para subir o servidor que estará rodando em: localhost:3001 (acessar 
  esse endereço antes de rodar a aplicação);
  
  * Rodar o comando:
   <strong>ng serve </strong>
- Para subir a aplicação que estará rodando em: localhost:4200;
+ para subir a aplicação que estará rodando em: localhost:4200;
 
 
 ## Créditos
