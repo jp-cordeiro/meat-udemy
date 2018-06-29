@@ -5,7 +5,7 @@
 * Ter o Node instalado na máquina;
 
 * Executar o comando:
- <strong>npm i</strong>
+ <strong>npm install</strong>
  no diretório raiz do projeto para realizar a instalação de todas as dependências utilizadas;
  
 * Após todas as dependências serem instaladas rodar o comando:
