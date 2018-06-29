@@ -1,4 +1,4 @@
-# Meat - Angular App Starter - Estudo com Angular 4
+# Meat - Angular App - Estudo com Angular 4
 
 ## 1. Passos para rodar a aplicação
 
